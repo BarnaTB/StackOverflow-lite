@@ -13,9 +13,11 @@ The pages do not need much to be viewed as any web browser can view them from [t
 ### Installing
 
  * Clone the project into your local repository using this command:
+ 
  `git clone https://github.com/BarnaTB/StackOverflow-lite.git`
  
  * Switch to the master branch
+ 
  `git checkout master`
  
  ### Running the tests
