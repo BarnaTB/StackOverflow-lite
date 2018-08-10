@@ -46,4 +46,4 @@ Barnabas Tumuhairwe B
 
 ### Acknowledgements
 
-Kudos to the developers at Andela for their unmatched support during the development of this project.
+Kudos to the developers at [Andela](https://andela.com/) for their unmatched support during the development of this project.
