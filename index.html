@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="./static/main.css">
+    <title>StackOverflow-lite</title>
+</head>
+
+<body>
+    <div class="content">
+        <div class="heading">
+            <h1>StackOverflow-lite</h1>
+            <h2>Ask a question, get an answer</h2>
+        </div>
+        <div>
+            <form action="./templates/home.html">
+                <div id="user-name">
+                    <label>Username</label>
+                    <input type="text" name="first_name" placeholder="Username" required>
+                </div>
+                <div class="email-field">
+                    <label>Enter your email</label>
+                    <input type="email" name="email" placeholder="Email address" required>
+                </div>
+                <div class="password-field">
+                    <label>Enter a password</label>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="submitBtn">
+                    <button type="submit">REGISTER</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <p>Have an account?
+                <a href="templates/sign_in.html">Sign In</a>
+            </p>
+        </div>
+        <footer>
+            <p>By clicking "Register", you agree to StackOverflow-lite's
+                <a href='#'>Terms Of Use</a> and acknowledge you have read the
+                <a href='#'>Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
