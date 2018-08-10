@@ -1,0 +1,156 @@
+body {
+    background-color: #f8f8f9;
+    font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+input {
+    margin: 0 auto;
+    display: block;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid darkslategray;
+    background-color: #f8f8f9;
+}
+
+.content {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+h1 {
+    margin: 0 auto;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+h2 {
+    margin: 0 auto;
+    font-weight: 300;
+    padding-bottom: 20px;
+}
+
+.heading {
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    width: 434px;
+    background-color: darkslategray;
+    color: #ffffff;
+    text-align: center;
+    height: 55px;
+    border-color: darkslategray;
+    outline: 0;
+    border: 0;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 40px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(27, 48, 48);
+    transition: 0.7s;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(99, 201, 201);
+}
+
+p {
+    font-size: 13px;
+}
+
+@media only screen and (max-width: 490px) {
+    p {
+        font-size: 12px;
+    }
+
+    input {
+        margin: 0 auto;
+        display: block;
+        padding: 15px;
+        width: 404px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid darkslategray;
+        background-color: #f8f8f9;
+    }
+
+    .content {
+        max-width: 430px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    p {
+        font-size: 11px;
+    }
+
+    input {
+        margin: 0 auto;
+        display: block;
+        padding: 15px;
+        width: 300px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid darkslategray;
+        background-color: #f8f8f9;
+    }
+
+    button {
+        width: 330px;
+    }
+
+    .content {
+        max-width: 330px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    p {
+        font-size: 10px;
+    }
+
+    input {
+        margin: 0 auto;
+        display: block;
+        padding: 15px;
+        width: 300px;
+        margin-bottom: 20px;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid darkslategray;
+        background-color: #f8f8f9;
+    }
+
+    button {
+        width: 330px;
+    }
+
+    .content {
+        max-width: 330px;
+        margin: 0 auto;
+    }
+}
