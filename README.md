@@ -16,7 +16,7 @@ The pages do not need much to be viewed as any web browser can view them from [t
 
 `git clone https://github.com/BarnaTB/StackOverflow-lite.git`
 
-* Switch to the master branch
+* Switch to the master branch as it has the production ready code
 
 `git checkout master`
 
