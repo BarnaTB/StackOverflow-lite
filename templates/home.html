@@ -5,31 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="../static/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="home.js"></script>
     <title>StackOverflow-lite</title>
 </head>
 
 <body>
+    <div class="nav-bar">
+        <div class="topnav" id="myTopnav">
+            <a href="#home" class="active">Home</a>
+            <a href="#news">Questions</a>
+            <a href="#contact">Answers</a>
+            <a href="#about">Contact</a>
+            <a href="#about">About Us</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction(this)">
+                <div class="container" onclick="">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+        </div>
+    </div>
     <div class="content">
-        <div class="nav-bar">
-            <div class="topnav" id="myTopnav">
-                <a href="#home" class="active">Home</a>
-                <a href="#news">Questions</a>
-                <a href="#contact">Answers</a>
-                <a href="#about">Contact</a>
-                <a href="#about">About Us</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction(this)">
-                    <div class="container" onclick="">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                    </div>
-                </a>
-
+        <div>
+            <button href="questions.html">Ask a Question</button>
+        </div>
+        <div class="question">
+            <label>
+                <h2>
+                    <a href="answers.html">How can I add a coveralls badge to my github repository?</a>
+                </h2>
+            </label>
+            <p>I advise that you visit
+                <a href="https://coveralls.io/" target="_blank">the coveralls website</a> and look through their documentaton because I find it very detailed and useful
+                enough.
+            </p>
+            <div class="flex-container">
+                <button id="answer-btn" href="answers.html">Answer</button>
+                <button id="answer-btn" href="questions.html">View more answers</button>
             </div>
         </div>
-
+        <div class="question">
+            <label>
+                <h2>
+                    <a href="answers.html">What can I do in case my travis-ci shows passing via the travis-ci website but shows unknown in the markdown
+                        badge.
+                    </a>
+                </h2>
+            </label>
+            <p>The problem could be the cache memory for that page that keeps holding onto the badge results from the previous
+                build. This can be solved by deleting the cache or hard-resetting the page data using these controls:
+                <br>
+                <code>Ctrl + Shift + R</code>
+            </p>
+            <div class="flex-container">
+                <button id="answer-btn" href="answers.html">Answer</button>
+                <button id="answer-btn" href="questions.html">View more answers</button>
+            </div>
+        </div>
+        <div class="question">
+            <label>
+                <h2>
+                    <a href="answers.html">How can I add a coveralls badge to my github repository?</a>
+                </h2>
+            </label>
+            <p>I advise that you visit
+                <a href="https://coveralls.io/" target="_blank">the coveralls website</a> and look through their documentaton because I find it very detailed and useful
+                enough.
+            </p>
+            <div class="flex-container">
+                <button id="answer-btn" href="answers.html">Answer</button>
+                <button id="answer-btn" href="questions.html">View more answers</button>
+            </div>
+        </div>
     </div>
 
 </body>

@@ -2,6 +2,7 @@ body {
     background-color: #f8f8f9;
     font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 13px;
+    text-align: center;
 }
 
 .nav-bar {
@@ -14,6 +15,17 @@ body {
     display: block;
     padding: 40px;
     float: left;
+    text-align: center;
+    padding: 14px 17px;
+    font-weight: bold;
+    font-size: 15px;
+    height: 20px;
+}
+
+.nav-stack {
+    display: block;
+    /* padding: 40px; */
+    float: right;
     text-align: center;
     padding: 14px 17px;
     font-weight: bold;
@@ -39,7 +51,54 @@ a {
     color: #ffffff;
 }
 
-@media screen and (max-width: 490px) {
+h3 a {
+    color: black;
+}
+
+button {
+    width: 200px;
+    background-color: darkslategray;
+    color: #ffffff;
+    text-align: center;
+    height: 55px;
+    border-color: darkslategray;
+    outline: 0;
+    border: 0;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(27, 48, 48);
+    transition: 0.7s;
+}
+
+label a {
+    text-decoration: none;
+    color: rgb(99, 201, 201);
+}
+
+p a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    /* margin-bottom: 30px; */
+}
+
+.question {
+    width: 500px;
+    background-color: rgb(151, 151, 151);
+    height: 30%;
+    margin-bottom: 60px;
+}
+
+.content {
+    width: 450px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 501px) {
     .topnav a:not(:first-child) {
         display: none;
     }
@@ -84,6 +143,19 @@ a {
         -webkit-transform: rotate(45deg) translate(-8px, -8px);
         transform: rotate(45deg) translate(-8px, -8px);
     }
+    .content {
+        width: 400px;
+    }
+    .question {
+        width: 400px;
+        background-color: rgb(151, 151, 151);
+    }
+    .flex-container {
+        display: flex;
+    }
+    .flex-container>button {
+        margin-right: 5%;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -123,5 +195,21 @@ a {
     .change .bar3 {
         -webkit-transform: rotate(45deg) translate(-8px, -8px);
         transform: rotate(45deg) translate(-8px, -8px);
+    }
+    .content {
+        width: 350px;
+    }
+    .question {
+        width: 350px;
+        background-color: rgb(151, 151, 151);
+    }
+    button {
+        width: 200px;
+    }
+    .flex-container {
+        display: flex;
+    }
+    .flex-container>button {
+        margin-right: 5%;
     }
 }
