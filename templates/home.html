@@ -12,11 +12,12 @@
 <body>
     <div class="nav-bar">
         <div class="topnav" id="myTopnav">
-            <a href="#home" class="active">Home</a>
-            <a href="#news">Questions</a>
-            <a href="#contact">Answers</a>
-            <a href="#about">Contact</a>
-            <a href="#about">About Us</a>
+            <a href="home.html" class="active">Home</a>
+            <a href="questions.html">My Questions</a>
+            <a href="answers.html">Answers</a>
+            <a href="profile.html">Profile</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.htlm">About Us</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction(this)">
                 <div class="container" onclick="">
                     <div class="bar1"></div>
@@ -28,12 +29,14 @@
     </div>
     <div class="content">
         <div>
-            <button href="questions.html">Ask a Question</button>
+            <a href="questions.html">
+                <button>Ask a Question</button>
+            </a>
         </div>
         <div class="question">
             <label>
                 <h2>
-                    <a href="answers.html">How can I add a coveralls badge to my github repository?</a>
+                    <a href="more_answers.html">How can I add a coveralls badge to my github repository?</a>
                 </h2>
             </label>
             <p>I advise that you visit
@@ -41,8 +44,12 @@
                 enough.
             </p>
             <div class="flex-container">
-                <button id="answer-btn" href="answers.html">Answer</button>
-                <button id="answer-btn" href="questions.html">View more answers</button>
+                <a href="answers.html">
+                    <button id="answer-btn">Answer</button>
+                </a>
+                <a href="more_answers.html">
+                    <button id="answer-btn">View more answers</button>
+                </a>
             </div>
         </div>
         <div class="question">
@@ -59,8 +66,12 @@
                 <code>Ctrl + Shift + R</code>
             </p>
             <div class="flex-container">
-                <button id="answer-btn" href="answers.html">Answer</button>
-                <button id="answer-btn" href="questions.html">View more answers</button>
+                <a href="answers.html">
+                    <button id="answer-btn">Answer</button>
+                </a>
+                <a href="answers.html">
+                    <button id="answer-btn">View more answers</button>
+                </a>
             </div>
         </div>
         <div class="question">
@@ -74,12 +85,18 @@
                 enough.
             </p>
             <div class="flex-container">
-                <button id="answer-btn" href="answers.html">Answer</button>
-                <button id="" href="questions.html">View more answers</button>
+                <a href="answers.html">
+                    <button id="answer-btn">Answer</button>
+                </a>
+                <a href="answers.html">
+                    <button id="answer-btn">View more answers</button>
+                </a>
             </div>
         </div>
     </div>
-
+    <footer>
+        StackOverflow-lite Inc.
+    </footer>
 </body>
 
 </html>
