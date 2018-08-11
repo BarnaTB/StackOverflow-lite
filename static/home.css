@@ -94,8 +94,18 @@ p a {
 }
 
 .content {
-    width: 450px;
+    width: 500px;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+    .question {
+        width: 450px;
+    }
+    .content {
+        width: 450px;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width: 501px) {
@@ -152,6 +162,7 @@ p a {
     }
     .flex-container {
         display: flex;
+        margin-left: 5%;
     }
     .flex-container>button {
         margin-right: 5%;
@@ -209,7 +220,7 @@ p a {
     .flex-container {
         display: flex;
     }
-    .flex-container>button {
+    .flex-container > button {
         margin-right: 5%;
     }
 }
