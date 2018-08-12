@@ -108,7 +108,11 @@ p a {
     }
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 622px) {
+=======
+@media screen and (max-width: 501px) {
+>>>>>>> ec0bc7cad7f0ce9f544055ee1556f0257160acde
     .topnav a:not(:first-child) {
         display: none;
     }
