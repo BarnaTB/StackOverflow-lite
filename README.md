@@ -26,7 +26,7 @@ There are currently no automated tests for this project.
 
 ### Deployment
 
-The pages are live on [github pages](). They, however, have only been tested with Google Chrome and Mozilla Firefox so *no* assurance of perfomance in any other browser can be given.
+The pages are live on [github pages](https://barnatb.github.io/StackOverflow-lite/). They, however, have only been tested with Google Chrome and Mozilla Firefox so *no* assurance of perfomance in any other browser can be given.
 
 ### Built With
 
