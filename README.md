@@ -8,17 +8,17 @@ You can clone the project using the link [Github repository](https://github.com/
 
 ## Prerequisites
 
-The pages do not need much to be viewed as any web browser can view them from [this site] as long as they have internet access.
+The pages do not need much to be viewed as any web browser can view them from [this site](https://barnatb.github.io/StackOverflow-lite/) as long as they have internet access.
 
 ## Installing
 
-* Clone the project into your local repository using this command:
+    * Clone the project into your local repository using this command:
 
-`git clone https://github.com/BarnaTB/StackOverflow-lite.git`
+    `git clone https://github.com/BarnaTB/StackOverflow-lite.git`
 
-* Switch to the master branch
+    * Switch to the master branch
 
-`git checkout master`
+    `git checkout master`
 
 ## Running the tests
 
@@ -32,9 +32,9 @@ The pages are live on [github pages](https://barnatb.github.io/StackOverflow-lit
 
 The project has been built with the following technologies so far:
 
-* HTML
-* CSS
-* Javascript
+    * HTML
+    * CSS
+    * Javascript
 
 ## Contributions
 
