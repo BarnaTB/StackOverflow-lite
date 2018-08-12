@@ -22,16 +22,6 @@ body {
     height: 20px;
 }
 
-/* .nav-stack {
-    display: block;
-    float: right;
-    text-align: center;
-    padding: 14px 17px;
-    font-weight: bold;
-    font-size: 15px;
-    height: 20px;
-} */
-
 .nav-bar a:hover {
     background-color: rgb(27, 48, 48);
 }
@@ -98,12 +88,51 @@ a {
     color: #ffffff;
 }
 
+#accept {
+    width: 0px;
+    height: 0px;
+    background-color: rgb(126, 125, 125);
+}
+
+img {
+    width: 40px;
+    height: 40px;
+}
+
 h2 a {
     color: rgb(99, 201, 201);
 }
 
 #delete-btn {
     background-color: darkred;
+}
+
+label {
+    border-bottom: 1px solid darkslategray;
+}
+
+.wrap {
+    display: flex;
+    margin-right: 5%;
+}
+
+.paragraph {
+    background-color: #f8f8f9;
+    color: rgb(0, 0, 0);
+    height: 10%;
+    margin-left: 10%;
+    margin-bottom: 15px;
+    /* margin-top: 40px; */
+}
+#button > button{
+    margin-top: -1%;
+    margin-right: 5%;
+    background-color: rgb(126, 125, 125);
+    width: 1px;
+    height: 1px;
+}
+.wrap>.paragraph a{
+    color: rgb(99, 201, 201);
 }
 
 @media screen and (max-width: 600px) {
@@ -174,6 +203,27 @@ h2 a {
     .question {
         width: 400px;
         background-color: rgb(126, 125, 125);
+    }
+    .wrap>div {
+        margin-right: 10%;
+    }
+    .paragraph {
+        background-color: #f8f8f9;
+        color: rgb(0, 0, 0);
+        height: 10%;
+        margin-left: 5%;
+        margin-bottom: 15px;
+        /* margin-top: 40px; */
+    }
+    #button > button{
+        margin-top: -1%;
+        margin-right: 5%;
+        background-color: rgb(126, 125, 125);
+        width: 1px;
+        height: 1px;
+    }
+    .wrap>.paragraph a{
+        color: rgb(99, 201, 201);
     }
 }
 
