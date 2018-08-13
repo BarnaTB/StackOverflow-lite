@@ -38,7 +38,7 @@ The project has been built with the following technologies so far:
 
 ## Contributions
 
-To contibute to the project, create a branch from the *develop* branch and make a PR after which your contributions may be merged into the *develop* branch
+To contibute to the project, create a branch from the *develop* branch and make a PR after which your contributions may be merged into the **develop** branch
 
 ## Authors
 
