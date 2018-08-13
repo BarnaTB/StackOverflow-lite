@@ -4,7 +4,7 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 
 ## Getting Started
 
-You can clone the project using the link [Github repository](https://github.com/BarnaTB/StackOverflow-lite.git) and checkout the current output from [github pages]
+You can clone the project using the link [Github repository](https://github.com/BarnaTB/StackOverflow-lite.git) and checkout the current output from [github pages](https://barnatb.github.io/StackOverflow-lite/)
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The project has been built with the following technologies so far:
 
 ## Contributions
 
-To contibute to the project, create a branch from the *develop* branch and make a PR after which your contributions may be merged into the __develop__ branch
+To contibute to the project, create a branch from the *develop* branch and make a PR after which your contributions may be merged into the **develop** branch
 
 ## Authors
 
