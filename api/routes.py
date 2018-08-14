@@ -7,6 +7,13 @@ from api.models import *
 
 @app.route('/questions', methods=['POST'])
 def add_question():
+    """
+    Method enables user to create a question by first checking if they have
+    entered an empty string and returns an error message in that case. If not,
+    it creates a question with the information from the json object and adds
+    the question to a list of qeustions called 'questions' and returns a
+    success message wuth the question that has been created.
+    """
     data = request.get_json()
 
     questionId = len(questions)
@@ -28,6 +35,19 @@ def add_question():
 
 @app.route('/questions/<questionId>/answers', methods=['POST'])
 def add_answer(questionId: int):
+    """
+    Method enables user to add an answer to a question on the platform by
+    first checking for an empty string in which case it returns an error
+    message and then checks if the questionId corresponds to any
+    entry in the list of questions, enables the user to enter an
+    answer to that specific question and appends the answer to a list of
+    answers.
+
+    :param questionId:
+    Parameter holds an integer value of the question id to be answered. If
+    the value is not an integer value, a TypeError is raised by the method
+    which asks the user to enter a number.
+    """
     data = request.get_json()
 
     questionId = data.get('questionId')
@@ -47,5 +67,37 @@ def add_answer(questionId: int):
         }), 201
     except TypeError:
         return jsonify({
-            'message': 'question id must be a number!'
+            'message': 'Question id must be a number!'
+        }), 400
+
+
+@app.route('/questions/<questionId>', methods=['GET'])
+def get_one_question(questionId: int):
+    """
+    Method enables a user to fetch a single question from the platform
+    using the questionId by checking if that id corresponds to any
+    question in the list in which case it returns a success message
+    with the question that has been fetched. In a case where the question
+    id does not match, an error message is returned stating that the
+    question does not exist. A type error is raised in case the question
+    id passed is not an integer.
+
+    :param questionId:
+    Parameter holds an integer value of the question id. If the value is
+    not an integer value, a TypeError is raised by the method which asks
+    the user to enter a number.
+    """
+    try:
+        if questionId > len(questions) or questionId <= 0:
+            return jsonify({
+                'message': 'Question does not exist.'
+            }), 400
+        question = questions[questionId]
+        return jsonify({
+            'Question': question.__dict__,
+            'message': 'Question fetched successfully'
+        }), 200
+    except TypeError:
+        return jsonify({
+            'message': 'Question id must be a number!'
         }), 400
