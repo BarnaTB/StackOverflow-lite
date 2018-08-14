@@ -12,11 +12,11 @@ The pages do not need much to be viewed as any web browser can view them from [t
 
 ## Installing
 
-    * Clone the project into your local repository using this command:
+* Clone the project into your local repository using this command:
 
     `git clone https://github.com/BarnaTB/StackOverflow-lite.git`
 
-    * Switch to the master branch
+* Switch to the master branch as it has the current production ready code.
 
     `git checkout master`
 
@@ -30,11 +30,12 @@ The pages are live on [github pages](https://barnatb.github.io/StackOverflow-lit
 
 ## Built With
 
-The project has been built with the following technologies so far:
+The project has been built with the following technologies:
 
     * HTML
     * CSS
     * Javascript
+    * Python/Flask
 
 ## Contributions
 
@@ -46,4 +47,4 @@ Barnabas Tumuhairwe B
 
 ## Acknowledgements
 
-Kudos to the developers at Andela for their unmatched support during the development of this project.
+Kudos to the developers at [Andela](https://andela.com) for their unmatched support during the development of this project.
