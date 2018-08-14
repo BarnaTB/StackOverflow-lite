@@ -101,3 +101,22 @@ def get_one_question(questionId: int):
         return jsonify({
             'message': 'Question id must be a number!'
         }), 400
+
+
+@app.route('/questions', methods=['GET'])
+def get_all_questions():
+    """
+    Method enables a user to fetch all questions on the platform by checking
+    if the length of the questions list is not zero, in which case it returns
+    an error message telling the user there are no questions in the list yet
+    else, it returns all the questions in the list of questions on the
+    platform.
+    """
+    if len(questions) == 0:
+        return jsonify({
+            'message': 'Sorry there are no questions yet!'
+        }), 400
+    return jsonify({
+        'Questions': [question.__dict__ for question in questions],
+        'message': 'Questions fetched successfully!'
+    }), 200
