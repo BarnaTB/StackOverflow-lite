@@ -35,7 +35,7 @@ The project has been built with the following technologies:
     * HTML
     * CSS
     * Javascript
-    * Python/Flask
+    * Python/Flask(APIs)
 
 ## Contributions
 
