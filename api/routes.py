@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 import json
 import uuid
-# from api import app
 from api.models import *
 from flask import Blueprint
 
@@ -26,11 +25,14 @@ def add_question():
     details = data.get('details')
 
     if not details or details.isspace():
-        return jsonify({"message": "Missing question!"}), 400
+        return jsonify({
+            "message": "Sorry, you didn't enter any question!"
+        }), 400
     question = Question(questionId, details)
     questions.append(question)
 
     return jsonify({
+        "id": questionId,
         "question": question.__dict__,
         "message": "Question added successfully!"
     }), 201
@@ -39,38 +41,44 @@ def add_question():
 @mod.route('/questions/<int:questionId>/answers', methods=['POST'])
 def add_answer(questionId):
     """
-    Function enables user to add an answer to a question on the platform by
-    first checking for an empty string in which case it returns an error
-    message and then checks if the questionId corresponds to any
-    entry in the list of questions, enables the user to enter an
-    answer to that specific question and appends the answer to a list of
-    answers.
+    Function enables user to add an answer to a question on the platform.
+    Checks if there is an empty string and returns a message telling the
+    user that they didn't enter anything. Also checks if there are any
+    questions in the list and if not returns a message that there are not
+    questions yet.
+    Then checks if the question whose id they entered exists and if not,
+    returns a message that the quetion does not exist else, returns the
+    answer the user entered together with the question.
 
     :param questionId:
-    Parameter holds an integer value of the question id to be answered. If
-    the value is not an integer value, a TypeError is raised by the method
-    which asks the user to enter a number.
+    Parameter holds the id of the question that the user wishes to answer.
     """
     data = request.get_json()
 
-    questionId = data.get('questionId')
     details = data.get('details')
 
     try:
-        if not details and len(details.strip(" ")) != 0:
-            return jsonify({'message': 'Please enter an answer.'}), 400
-        if questionId > len(questions) or questionId <= 0:
-            return jsonify({'message': 'Question does not exist!'}), 400
+        if not details or details.isspace():
+            return jsonify({
+                'message': 'Sorry, you did not enter any answer!'
+            }), 400
+        if len(questions) == 0:
+            return jsonify({
+                'message': 'Sorry, there are no questions yet!!'
+            }), 400
+
+        question = questions[questionId - 1]
         answer = Answer(questionId, details)
         answers.append(answer)
 
         return jsonify({
+            'Question': question.__dict__,
             'Answer': answer.__dict__,
             'Message': 'Answer added succesfully!'
         }), 201
-    except TypeError:
+    except IndexError:
         return jsonify({
-            'message': 'Question id must be a number!'
+            'message': 'Question does not exist.'
         }), 400
 
 
@@ -88,17 +96,37 @@ def get_one_question(questionId):
     Parameter holds an integer value of the question id which is the id
     of the question that the user user to fetch.
     """
+    questionId = int(questionId)
     try:
-        if questionId > len(questions) or questionId <= 0:
+        if len(questions) < 0:
             return jsonify({
-                'message': 'Question does not exist.'
+                'message': 'You have no questions yet.'
             }), 400
         question = questions[questionId - 1]
         return jsonify({
             'Question': question.__dict__,
-            'message': 'Question fetched successfully'
-        }), 200
-    except TypeError:
+            'Message': 'Answer added succesfully!'
+        }), 201
+    except IndexError:
         return jsonify({
-            'message': 'Question id must be a number!'
+            'message': 'Question does not exist.'
         }), 400
+
+
+@mod.route('/questions', methods=['GET'])
+def get_all_questions():
+    """
+    Function enables a user to fetch all questions on the platform by checking
+    if the length of the questions list is not zero, in which case it returns
+    an error message telling the user there are no questions in the list yet
+    else, it returns all the questions in the list of questions on the
+    platform.
+    """
+    if len(questions) == 0:
+        return jsonify({
+            'message': 'Sorry there are no questions yet!'
+        }), 400
+    return jsonify({
+        'Questions': [question.__dict__ for question in questions],
+        'message': 'Questions fetched successfully!'
+    }), 200
