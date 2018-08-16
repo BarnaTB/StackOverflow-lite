@@ -3,11 +3,13 @@ import json
 import uuid
 # from api import app
 from api.models import *
+from flask import Blueprint
 
-app = Flask(__name__)
+
+mod = Blueprint('questions', __name__)
 
 
-@app.route('/api/v1/questions', methods=['POST'])
+@mod.route('/questions', methods=['POST'])
 def add_question():
     """
     Function enables user to create a question by first checking if they have
@@ -23,7 +25,7 @@ def add_question():
 
     details = data.get('details')
 
-    if not details or len(details.strip(" ")) != 0:
+    if not details or details.isspace():
         return jsonify({"message": "Missing question!"}), 400
     question = Question(questionId, details)
     questions.append(question)
@@ -35,7 +37,7 @@ def add_question():
     }), 201
 
 
-@app.route('/api/v1/questions/<questionId>/answers', methods=['POST'])
+@mod.route('/api/v1/questions/<questionId>/answers', methods=['POST'])
 def add_answer(questionId):
     """
     Function enables user to add an answer to a question on the platform by
@@ -67,7 +69,7 @@ def add_answer(questionId):
     }), 201
 
 
-@app.route('/api/v1/questions/<int:questionId>', methods=['GET'])
+@mod.route('/api/v1/questions/<int:questionId>', methods=['GET'])
 def get_one_question(questionId):
     """
     Function enables a user to fetch a single question from the platform
@@ -100,7 +102,7 @@ def get_one_question(questionId):
         }), 400
 
 
-@app.route('/api/v1/questions', methods=['GET'])
+@mod.route('/questions', methods=['GET'])
 def get_all_questions():
     """
     Function enables a user to fetch all questions on the platform by checking
