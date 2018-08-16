@@ -11,12 +11,12 @@ class User:
 
 
 class Question:
-    def __init__(self, question_id, details):
-        self.question_id = question_id
+    def __init__(self, questionId, details):
+        self.questionId = questionId
         self.details = details
 
 
 class Answer:
-    def __init__(self, answer_id, details):
-        self.answer_id = answer_id
+    def __init__(self, question, details):
+        self.question = question
         self.details = details

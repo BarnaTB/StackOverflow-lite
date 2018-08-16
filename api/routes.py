@@ -1,23 +1,26 @@
 from flask import Flask, request, jsonify
 import json
 import uuid
-from api import app
+from api.utilities import *
 from api.models import *
+from flask import Blueprint
 
 
-@app.route('/questions', methods=['POST'])
+mod = Blueprint('answers', __name__)
+
+
+@mod.route('/questions', methods=['POST'])
 def add_question():
     data = request.get_json()
 
     questionId = len(questions)
     questionId += 1
 
-    question_id = data.get('questionId')
     details = data.get('details')
 
-    if not details and len(details.strip(" ")) != 0:
+    if not details or details.isspace():
         return jsonify({"message": "Missing question!"}), 400
-    question = Question(question_id, details)
+    question = Question(questionId, details)
     questions.append(question)
 
     return jsonify({
@@ -26,26 +29,31 @@ def add_question():
     }), 201
 
 
-@app.route('/questions/<questionId>/answers', methods=['POST'])
-def add_answer(questionId: int):
+@mod.route('/questions/<int:questionId>/answers', methods=['POST'])
+def add_answer(questionId):
     data = request.get_json()
 
-    questionId = data.get('questionId')
     details = data.get('details')
 
-    try:
-        if not details and len(details.strip(" ")) != 0:
-            return jsonify({'message': 'Please enter an answer.'}), 400
-        if questionId > len(questions) or questionId <= 0:
-            return jsonify({'message': 'Question does not exist!'}), 400
-        answer = Answer(questionId, details)
-        answers.append(answer)
+    # try:
+    if not details or details.isspace():
+        return jsonify({
+            'message': 'Sorry, you did not enter any answer!'
+            }), 400
+    if len(questions) == 0:
+        return jsonify({
+            'message': 'Sorry, there are no questions yet!!'
+            }), 400
+    question = get_question(questionId)
+    answer = Answer(question, details)
+    answers.append(answer)
 
-        return jsonify({
-            'Answer': answer.__dict__,
-            'Message': 'Answer added succesfully!'
-        }), 201
-    except TypeError:
-        return jsonify({
-            'message': 'question id must be a number!'
-        }), 400
+    return jsonify({
+        'questionId': questionId,
+        'Answer': answer.__dict__,
+        'Message': 'Answer added succesfully!'
+    }), 201
+    # except TypeError:
+        # return jsonify({
+        #     'message': 'question id must be a number!'
+        # }), 400
