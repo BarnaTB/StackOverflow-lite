@@ -1,14 +1,11 @@
 from flask import Flask, request, jsonify
 import json
 import uuid
-# import app
 from api.models import *
 from flask import Blueprint
 
 
 mod = Blueprint('questions', __name__)
-
-# app = Flask(__name__)
 
 
 @mod.route('/questions', methods=['POST'])
@@ -85,7 +82,7 @@ def add_answer(questionId):
         }), 400
 
 
-@mod.route('/api/v1/questions/<int:questionId>', methods=['GET'])
+@mod.route('/questions/<int:questionId>', methods=['GET'])
 def get_one_question(questionId):
     """
     Function enables a user to fetch a single question from the platform
@@ -93,13 +90,11 @@ def get_one_question(questionId):
     question in the list in which case it returns a success message
     with the question that has been fetched. In a case where the question
     id does not match, an error message is returned stating that the
-    question does not exist. A type error is raised in case the question
-    id passed is not an integer.
+    question does not exist.
 
     :param questionId:
-    Parameter holds an integer value of the question id. If the value is
-    not an integer value, a TypeError is raised by the method which asks
-    the user to enter a number.
+    Parameter holds an integer value of the question id which is the id
+    of the question that the user user to fetch.
     """
     questionId = int(questionId)
     try:
@@ -110,7 +105,6 @@ def get_one_question(questionId):
         question = questions[questionId - 1]
         return jsonify({
             'Question': question.__dict__,
-            'Answer': answer.__dict__,
             'Message': 'Answer added succesfully!'
         }), 201
     except IndexError:
