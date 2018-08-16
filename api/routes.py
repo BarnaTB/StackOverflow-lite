@@ -11,6 +11,13 @@ mod = Blueprint('answers', __name__)
 
 @mod.route('/questions', methods=['POST'])
 def add_question():
+    """
+    Function enables user to create a question by first checking if they have
+    entered an empty string and returns an error message in that case. If not,
+    it creates a question with the information from the json object and adds
+    the question to a list of qeustions called 'questions' and returns a
+    success message wuth the question that has been created.
+    """
     data = request.get_json()
 
     questionId = len(questions)
@@ -31,6 +38,19 @@ def add_question():
 
 @mod.route('/questions/<int:questionId>/answers', methods=['POST'])
 def add_answer(questionId):
+    """
+    Function enables user to add an answer to a question on the platform.
+    Checks if there is an empty string and returns a message telling the
+    user that they didn't enter anything. Also checks if there are any
+    questions in the list and if not returns a message that there are not
+    questions yet.
+    Then checks if the question whose id they entered exists and if not,
+    returns a message that the quetion does not exist else, returns the
+    answer the user entered together with the question.
+
+    :param questionId:
+    Parameter holds the id of the question that the user wishes to answer.
+    """
     data = request.get_json()
 
     details = data.get('details')
