@@ -17,6 +17,6 @@ class Question:
 
 
 class Answer:
-    def __init__(self, question, details):
-        self.question = question
+    def __init__(self, questionId, details):
+        self.questionId = questionId
         self.details = details
