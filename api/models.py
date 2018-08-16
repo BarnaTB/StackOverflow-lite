@@ -11,8 +11,8 @@ class User:
 
 
 class Question:
-    def __init__(self, question_id, details):
-        self.question_id = question_id
+    def __init__(self, questionId, details):
+        self.questionId = questionId
         self.details = details
 
 
