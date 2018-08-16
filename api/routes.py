@@ -1,12 +1,11 @@
 from flask import Flask, request, jsonify
 import json
 import uuid
-from api.utilities import *
 from api.models import *
 from flask import Blueprint
 
 
-mod = Blueprint('answers', __name__)
+mod = Blueprint('questions', __name__)
 
 
 @mod.route('/questions', methods=['POST'])
@@ -26,11 +25,14 @@ def add_question():
     details = data.get('details')
 
     if not details or details.isspace():
-        return jsonify({"message": "Missing question!"}), 400
+        return jsonify({
+            "message": "Sorry, you didn't enter any question!"
+        }), 400
     question = Question(questionId, details)
     questions.append(question)
 
     return jsonify({
+        "id": questionId,
         "question": question.__dict__,
         "message": "Question added successfully!"
     }), 201
@@ -78,3 +80,53 @@ def add_answer(questionId):
         return jsonify({
             'message': 'Question does not exist.'
         }), 400
+
+
+@mod.route('/questions/<int:questionId>', methods=['GET'])
+def get_one_question(questionId):
+    """
+    Function enables a user to fetch a single question from the platform
+    using the questionId by checking if that id corresponds to any
+    question in the list in which case it returns a success message
+    with the question that has been fetched. In a case where the question
+    id does not match, an error message is returned stating that the
+    question does not exist.
+
+    :param questionId:
+    Parameter holds an integer value of the question id which is the id
+    of the question that the user user to fetch.
+    """
+    questionId = int(questionId)
+    try:
+        if len(questions) < 0:
+            return jsonify({
+                'message': 'You have no questions yet.'
+            }), 400
+        question = questions[questionId - 1]
+        return jsonify({
+            'Question': question.__dict__,
+            'Message': 'Answer added succesfully!'
+        }), 201
+    except IndexError:
+        return jsonify({
+            'message': 'Question does not exist.'
+        }), 400
+
+
+@mod.route('/questions', methods=['GET'])
+def get_all_questions():
+    """
+    Function enables a user to fetch all questions on the platform by checking
+    if the length of the questions list is not zero, in which case it returns
+    an error message telling the user there are no questions in the list yet
+    else, it returns all the questions in the list of questions on the
+    platform.
+    """
+    if len(questions) == 0:
+        return jsonify({
+            'message': 'Sorry there are no questions yet!'
+        }), 400
+    return jsonify({
+        'Questions': [question.__dict__ for question in questions],
+        'message': 'Questions fetched successfully!'
+    }), 200
