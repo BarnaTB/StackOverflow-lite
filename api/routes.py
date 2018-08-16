@@ -1,23 +1,30 @@
 from flask import Flask, request, jsonify
 import json
 import uuid
-from api import app
+# import app
 from api.models import *
+from flask import Blueprint
 
 
-@app.route('/questions', method=['POST'])
+mod = Blueprint('questions', __name__)
+
+# app = Flask(__name__)
+
+
+@mod.route('/questions', methods=['POST'])
 def add_question():
     data = request.get_json()
 
-    question_id = len(questions)
-    question_id += 1
+    questionId = len(questions)
+    questionId += 1
 
-    question_id = data.get('question_id')
     details = data.get('details')
 
-    if not details and len(details.strip(" ")) != 0:
-        return jsonify({"message": "Please enter question details"}), 400
-    question = Question(question_id, details)
+    if not details or details.isspace():
+        return jsonify({
+            "message": "Sorry, you didn't enter any question!"
+            }), 400
+    question = Question(questionId, details)
     questions.append(question)
 
     return jsonify({
