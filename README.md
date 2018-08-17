@@ -2,9 +2,17 @@
 
 StackOverflow-lite is a platform where people can ask questions and provide answers.
 
+## Travis-CI
+
+[![Build Status](https://travis-ci.org/BarnaTB/StackOverflow-lite.svg?branch=ch-test-endpoints)](https://travis-ci.org/BarnaTB/StackOverflow-lite)
+
+## Coveralls
+
+
+
 ## Getting Started
 
-You can clone the project using the link [Github repository](https://github.com/BarnaTB/StackOverflow-lite.git) and checkout the current output from [github pages]
+You can clone the project using the link [Github repository](https://github.com/BarnaTB/StackOverflow-lite.git).
 
 ## Prerequisites
 
@@ -12,13 +20,36 @@ The pages do not need much to be viewed as any web browser can view them from [t
 
 ## Installing
 
-    * Clone the project into your local repository using this command:
+* Clone the project into your local repository using this command:
 
     `git clone https://github.com/BarnaTB/StackOverflow-lite.git`
 
-    * Switch to the master branch
+* Switch to the master branch
 
     `git checkout master`
+
+## Features
+
+* Post a question
+* Fetch a single question
+* Fetch all questions
+* Post an answer
+
+## Endpoints
+
+HTTP Method|Endpoint|Functionality
+-----------|--------|-------------
+POST|api/v1/questions|Create a question
+GET|api/v1/questions/questionId|Fetch a specific question
+GET|api/v1/questions|Fetch all questions
+POST|/questions/questionId/answers|Add an answer
+
+
+## Tools Used
+
+* [Flask](http://flask.pocoo.org/) - Web microframework for Python
+* [Virtual environment](https://virtualenv.pypa.io/en/stable/) - tool used to create isolated python environments
+* [pip](https://pip.pypa.io/en/stable/) - package installer for Python
 
 ## Running the tests
 
@@ -32,9 +63,10 @@ The pages are live on [github pages](https://barnatb.github.io/StackOverflow-lit
 
 The project has been built with the following technologies so far:
 
-    * HTML
-    * CSS
-    * Javascript
+* HTML
+* CSS
+* Javascript
+* Python/Flask
 
 ## Contributions
 
