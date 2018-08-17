@@ -10,6 +10,10 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 
 [![Coverage Status](https://coveralls.io/repos/github/BarnaTB/StackOverflow-lite/badge.svg?branch=ch-test-endpoints)](https://coveralls.io/github/BarnaTB/StackOverflow-lite?branch=ch-test-endpoints)
 
+## Code Climate
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/30514c2cf23246636552/maintainability)](https://codeclimate.com/github/BarnaTB/StackOverflow-lite/maintainability)
+
 ## Getting Started
 
 You can clone the project using the link [Github repository](https://github.com/BarnaTB/StackOverflow-lite.git).
@@ -43,7 +47,6 @@ POST|api/v1/questions|Create a question
 GET|api/v1/questions/questionId|Fetch a specific question
 GET|api/v1/questions|Fetch all questions
 POST|/questions/questionId/answers|Add an answer
-
 
 ## Tools Used
 
