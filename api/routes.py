@@ -105,8 +105,8 @@ def get_one_question(questionId):
         question = questions[questionId - 1]
         return jsonify({
             'Question': question.__dict__,
-            'Message': 'Answer added succesfully!'
-        }), 201
+            'Message': 'Question fetched successfully!'
+        }), 200
     except IndexError:
         return jsonify({
             'message': 'Question does not exist.'

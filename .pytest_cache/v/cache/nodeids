@@ -1,0 +1,7 @@
+[
+  "tests/test_routes.py::TestQuestions::test_add_question", 
+  "tests/test_routes.py::TestQuestions::test_add_question_empty_string", 
+  "tests/test_routes.py::TestQuestions::test_add_question_user_enters_a_space", 
+  "tests/test_routes.py::TestQuestions::test_get_all_questions", 
+  "tests/test_routes.py::TestQuestions::test_get_one_question"
+]
