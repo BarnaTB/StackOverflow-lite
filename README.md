@@ -8,7 +8,7 @@ StackOverflow-lite is a platform where people can ask questions and provide answ
 
 ## Coveralls
 
-
+[![Coverage Status](https://coveralls.io/repos/github/BarnaTB/StackOverflow-lite/badge.svg?branch=ch-test-endpoints)](https://coveralls.io/github/BarnaTB/StackOverflow-lite?branch=ch-test-endpoints)
 
 ## Getting Started
 
