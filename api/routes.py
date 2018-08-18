@@ -3,6 +3,7 @@ import json
 import uuid
 from api.models import *
 from flask import Blueprint
+import re
 
 
 mod = Blueprint('questions', __name__)
@@ -129,4 +130,79 @@ def get_all_questions():
     return jsonify({
         'Questions': [question.__dict__ for question in questions],
         'message': 'Questions fetched successfully!'
+    }), 200
+
+
+@mod.route('/signup', methods=['POST'])
+def register():
+    """
+    Function enables user to register on the platform. It checks if all the
+    required data is added by the user and then validates that data using
+    regular expressions for the email and password. Returns username in case
+    of successful registration.
+    """
+    data = request.get_json()
+
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
+
+    userId = uuid.uuid4()
+
+    if not username or username.isspace():
+        return jsonify({
+            'message': 'Sorry, you did not enter you username!'
+        }), 400
+    if not email or email.isspace():
+        return jsonify({
+            'message': 'Sorry, you did not enter you email!'
+        }), 400
+    if not password or password.isspace():
+        return jsonify({
+            'message': 'Sorry, you did not enter you password!'
+        }), 400
+    # source: https://docs.python.org/2/howto/regex.html
+    if not re.match(r"[^@.]+@[A-Za-z]+\.[a-z]+", email):
+        return jsonify({
+            'message': 'Invalid email address!'
+        }), 400
+    # source: https://docs.python.org/2/howto/regex.html
+    if not re.match(r"[A-Za-z0-9@#]", password):
+        return jsonify({
+            'message': 'Include at least one of each of these characters(A-Za-z0-9@#)'
+        }), 400
+    if len(password) < 6:
+        return jsonify({
+            'message': 'Passwords should be at least 6 characters long!'
+        }), 400
+    user = User(userId, username, email, password)
+    users.append(user)
+
+    return jsonify({
+        'User': user.username,
+        'message': '{} has registered successfully'.format(username)
+    }), 400
+
+
+@mod.route('/login', methods=['POST'])
+def login():
+    """
+    Function enables to login after validating the data they entered.
+    Returns a success message with the username in case of successful login.
+   """
+    data = request.get_json()
+
+    username = data.get('username')
+    password = data.get('password')
+
+    if not username or username.isspace():
+        return jsonify({
+            'message': 'You did not enter your username!'
+        }), 400
+    if not password or password.isspace():
+        return jsonify({
+            'message': 'You did not enter your password!'
+        }), 400
+    return jsonify({
+        'message': '{} is logged in.'.format(username)
     }), 200
