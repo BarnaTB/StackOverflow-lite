@@ -133,6 +133,25 @@ def get_all_questions():
     }), 200
 
 
+@mod.route('/questions/<int:questionId>', methods=['DELETE'])
+def delete_question(questionId):
+    try:
+        if len(questions) == 0:
+            return jsonify({
+                'message': 'There are no questions to delete!'
+            }), 400
+        for question in questions:
+            if questionId == question['questionId']:
+                questions.remove(question)
+                return jsonify({
+                    'message': 'Question deleted!'
+                }), 200
+    except IndexError:
+        return jsonify({
+            'message': 'Question does not exist.'
+        }), 400
+
+
 @mod.route('/signup', methods=['POST'])
 def register():
     """
