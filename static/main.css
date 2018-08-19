@@ -1,5 +1,5 @@
 body {
-    background-color: #f8f8f9;
+    background-color: #b8b8bb;
     font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 10px;
 }
@@ -20,7 +20,7 @@ input {
     border: none;
     outline: none;
     border-bottom: 1px solid darkslategray;
-    background-color: #f8f8f9;
+    background-color: #b8b8bb;
 }
 
 .content {
@@ -68,7 +68,7 @@ button:hover {
 
 a {
     text-decoration: none;
-    color: rgb(99, 201, 201);
+    color: rgb(75, 151, 151);
 }
 
 p {
