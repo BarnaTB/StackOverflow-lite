@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import json
+# import json
 import uuid
 from api.models import *
 from flask import Blueprint
@@ -56,10 +56,10 @@ def add_answer(questionId):
     """
     data = request.get_json()
 
-    details = data.get('details')
+    ans_details = data.get('details')
 
     try:
-        if not details or details.isspace():
+        if not ans_details or ans_details.isspace():
             return jsonify({
                 'message': 'Sorry, you did not enter any answer!'
             }), 400
@@ -69,7 +69,7 @@ def add_answer(questionId):
             }), 400
 
         question = questions[questionId - 1]
-        answer = Answer(questionId, details)
+        answer = Answer(questionId, question.details, ans_details)
         answers.append(answer)
 
         return jsonify({
@@ -104,10 +104,14 @@ def get_one_question(questionId):
                 'message': 'You have no questions yet.'
             }), 400
         question = questions[questionId - 1]
-        return jsonify({
-            'Question': question.__dict__,
-            'Message': 'Answer added succesfully!'
-        }), 201
+        if len(answers) != 0:
+            for answer in answers:
+                if answer['questionId'] == questionId:
+                    return jsonify({
+                        'Answers': answers.__dict__,
+                        'Question': question.__dict__,
+                        'Message': 'Answer added succesfully!'
+                    }), 201
     except IndexError:
         return jsonify({
             'message': 'Question does not exist.'
@@ -168,6 +172,9 @@ def register():
 
     userId = uuid.uuid4()
 
+    user_id = len(users)
+    user_id += 1
+
     if not username or username.isspace():
         return jsonify({
             'message': 'Sorry, you did not enter you username!'
@@ -194,7 +201,7 @@ def register():
         return jsonify({
             'message': 'Passwords should be at least 6 characters long!'
         }), 400
-    user = User(userId, username, email, password)
+    user = User(user_id, username, email, password)
     users.append(user)
 
     return jsonify({

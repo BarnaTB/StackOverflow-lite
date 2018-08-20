@@ -20,13 +20,13 @@ class User:
         return sha256.verify(password, hash)
 
 
-class Question:
+class Question(object):
     def __init__(self, questionId, details):
         self.questionId = questionId
         self.details = details
 
 
-class Answer:
-    def __init__(self, questionId, details):
-        self.questionId = questionId
-        self.details = details
+class Answer:    
+    def __init__(self, questionId, details, ans_details):
+        super().__init__(self, questionId, details)
+        self.ans_details = ans_details
