@@ -205,7 +205,8 @@ def register():
     users.append(user)
 
     return jsonify({
-        'User': user.username,
+        'User id': user_id,
+        'Username': user.username,
         'message': '{} has registered successfully'.format(username)
     }), 400
 

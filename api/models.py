@@ -7,7 +7,7 @@ answers = []
 
 
 class User:
-    def __init__(self, userId, username, email, password):
+    def __init__(self, user_id, username, email, password):
         self.username = username
         self.email = email
         self.password = password
@@ -20,13 +20,13 @@ class User:
         return sha256.verify(password, hash)
 
 
-class Question(object):
+class Question:
     def __init__(self, questionId, details):
         self.questionId = questionId
         self.details = details
 
 
-class Answer:    
-    def __init__(self, questionId, details, ans_details):
-        super().__init__(self, questionId, details)
-        self.ans_details = ans_details
+class Answer:
+    def __init__(self, questionId, details):
+        self.questionId = questionId
+        self.details = details
