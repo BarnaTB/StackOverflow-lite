@@ -49,6 +49,8 @@ The pages do not need much to be viewed as any web browser can view them from [t
 
     * Copy the url (http://127.0.0.1:5000/) into your Postman and to run any endpoint follow the table under the heading (**Endpoints**) with the url prefix (/api/v1) for each endpoint.
 
+## Running the tests
+
     * To run the tests, switch to the ch-test-endpoints branch.
 
     `git checkout ch-test-endpoints`
@@ -60,10 +62,6 @@ The pages do not need much to be viewed as any web browser can view them from [t
     * Run the tests.
 
     `py.test`
-
-## Running the tests
-
-There are currently no automated tests for this project.
 
 ## Deployment
 
