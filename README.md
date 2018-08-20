@@ -1,18 +1,13 @@
 # StackOverflow-lite
 
-StackOverflow-lite is a platform where people can ask questions and provide answers.
-
-## Travis-CI
-
 [![Build Status](https://travis-ci.org/BarnaTB/StackOverflow-lite.svg?branch=ch-test-endpoints)](https://travis-ci.org/BarnaTB/StackOverflow-lite)
-
-## Coveralls
 
 [![Coverage Status](https://coveralls.io/repos/github/BarnaTB/StackOverflow-lite/badge.svg?branch=ch-test-endpoints)](https://coveralls.io/github/BarnaTB/StackOverflow-lite?branch=ch-test-endpoints)
 
-## Code Climate
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/30514c2cf23246636552/maintainability)](https://codeclimate.com/github/BarnaTB/StackOverflow-lite/maintainability)
+
+StackOverflow-lite is a platform where people can ask questions and provide answers.
 
 ## Getting Started
 
