@@ -63,6 +63,15 @@ The pages do not need much to be viewed as any web browser can view them from [t
 
     `py.test`
 
+## Endpoints
+
+HTTP Method|Endpoint|Functionality
+-----------|--------|-------------
+POST|api/v1/questions|Create a question
+GET|api/v1/questions/questionId|Fetch a specific question
+GET|api/v1/questions|Fetch all questions
+POST|/questions/questionId/answers|Add an answer
+
 ## Deployment
 
 The pages are live on [github pages](https://barnatb.github.io/StackOverflow-lite/). They, however, have only been tested with Google Chrome and Mozilla Firefox so **no** assurance of perfomance in any other browser can be given.
