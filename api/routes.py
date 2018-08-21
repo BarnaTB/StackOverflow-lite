@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
-# import json
 import uuid
-from api.models import *
+from api.models import Answer, Question, User, questions, users, answers
 from flask import Blueprint
 import re
 
