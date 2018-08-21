@@ -19,52 +19,53 @@ The pages do not need much to be viewed as any web browser can view them from [t
 
 ## Installing
 
-    * Clone the project into your local repository using this command:
+* Clone the project into your local repository using this command:
 
-    `git clone https://github.com/BarnaTB/StackOverflow-lite.git`
+`git clone https://github.com/BarnaTB/StackOverflow-lite.git`
 
-    * Switch to the ft-api branch
+* Switch to the ft-api branch
 
-    `git checkout ft-api`
+`git checkout ft-api`
 
-    * Change directory to the cloned folder using the following command for Windows, Linux and MacOS
+* Change directory to the cloned folder using the following command for Windows, Linux and MacOS
 
-    `cd StackOverflow-lite`
+`cd StackOverflow-lite`
 
-    * If you do not have a virtual environment installed run the following command, else follow the next steps.
-    `pip install virtualenv`
+* If you do not have a virtual environment installed run the following command, else follow the next steps.
 
-    * Create a virtual environment(for Windows, Linux and MacOS)
+`pip install virtualenv`
 
-    `virtualenv venv`
+* Create a virtual environment(for Windows, Linux and MacOS)
 
-    * Activate the virtual environment(Windows only)
+`virtualenv venv`
 
-    `source venv/Scripts/activate`
+* Activate the virtual environment(Windows only)
 
-    and for Linux and MacOS
+`source venv/Scripts/activate`
 
-    `source venv/bin/activate`
+and for Linux and MacOS
 
-    * Install the app dependencies.(for Windows, Linux and MacOS)
+`source venv/bin/activate`
 
-    `pip install -r requirements.txt`
+* Install the app dependencies.(for Windows, Linux and MacOS)
 
-    * Run the app(for Windows, Linux and MacOS)
+`pip install -r requirements.txt`
 
-    `python run.py`
+* Run the app(for Windows, Linux and MacOS)
 
-    * Copy the url (http://127.0.0.1:5000/) into your Postman and to run any endpoint follow the table under the heading (**Endpoints**) with the url prefix ('/api/v1') for each endpoint.
+`python run.py`
+
+* Copy the url (http://127.0.0.1:5000/) into your Postman and to run any endpoint follow the table under the heading (**Endpoints**) with the url prefix ('/api/v1') for each endpoint.
 
 ## Running the tests
 
-    * If you don't have pytest installed, run the following command while the virtual environment is active
+* If you don't have pytest installed, run the following command while the virtual environment is active
 
-    `pip install pytest`
+`pip install pytest`
 
-    * Run the tests.
+* Run the tests.
 
-    `py.test`
+`py.test`
 
 ## Features
 
