@@ -105,7 +105,7 @@ def get_one_question(questionId):
         question = questions[questionId - 1]
         # ans = filter(lambda a: a['questionId'] == questionId, answers)
         return jsonify({
-            'Answers': [answer.__dict__ for answer in answers if answer.questionId==questionId],
+            'Answers': [answer.__dict__ for answer in answers if answer.questionId == questionId],
             'Question': question.__dict__,
             'Message': 'Question fetched successfully!'
         }), 200

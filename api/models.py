@@ -7,11 +7,7 @@ answers = []
 
 
 class User:
-<<<<<<< HEAD
-    def __init__(self, userId, username, email, password):
-=======
     def __init__(self, user_id, username, email, password):
->>>>>>> ft-api
         self.username = username
         self.email = email
         self.password = password
