@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import uuid
+import json
 from api.models import Answer, Question, User, questions, users, answers
 from flask import Blueprint
 import re
@@ -55,10 +56,10 @@ def add_answer(questionId):
     """
     data = request.get_json()
 
-    ans_details = data.get('details')
+    details = data.get('details')
 
     try:
-        if not ans_details or ans_details.isspace():
+        if not details or details.isspace():
             return jsonify({
                 'message': 'Sorry, you did not enter any answer!'
             }), 400
@@ -68,7 +69,7 @@ def add_answer(questionId):
             }), 400
 
         question = questions[questionId - 1]
-        answer = Answer(questionId, question.details, ans_details)
+        answer = Answer(questionId, details)
         answers.append(answer)
 
         return jsonify({
@@ -96,21 +97,18 @@ def get_one_question(questionId):
     Parameter holds an integer value of the question id which is the id
     of the question that the user user to fetch.
     """
-    questionId = int(questionId)
     try:
         if len(questions) < 0:
             return jsonify({
                 'message': 'You have no questions yet.'
             }), 400
         question = questions[questionId - 1]
-        if len(answers) != 0:
-            for answer in answers:
-                if answer['questionId'] == questionId:
-                    return jsonify({
-                        'Answers': answers.__dict__,
-                        'Question': question.__dict__,
-                        'Message': 'Answer added succesfully!'
-                    }), 201
+        # ans = filter(lambda a: a['questionId'] == questionId, answers)
+        return jsonify({
+            'Answers': [answer.__dict__ for answer in answers if answer.questionId==questionId],
+            'Question': question.__dict__,
+            'Message': 'Answer added succesfully!'
+        }), 201
     except IndexError:
         return jsonify({
             'message': 'Question does not exist.'
@@ -153,6 +151,19 @@ def delete_question(questionId):
         return jsonify({
             'message': 'Question does not exist.'
         }), 400
+
+
+# Test route
+@mod.route('/answers', methods=['GET'])
+def get_answers():
+    if len(answers) == 0:
+        return jsonify({
+            'message': 'Sorry there are no questions yet!'
+        }), 400
+    return jsonify({
+        'Questions': [answer.__dict__ for answer in answers],
+        'message': 'Questions fetched successfully!'
+    }), 200
 
 
 @mod.route('/signup', methods=['POST'])
