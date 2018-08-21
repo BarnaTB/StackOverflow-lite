@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
-import json
 import uuid
-from api.models import *
+import json
+from api.models import Answer, Question, User, questions, users, answers
 from flask import Blueprint
 import re
 
@@ -97,14 +97,15 @@ def get_one_question(questionId):
     Parameter holds an integer value of the question id which is the id
     of the question that the user user to fetch.
     """
-    questionId = int(questionId)
     try:
         if len(questions) < 0:
             return jsonify({
                 'message': 'You have no questions yet.'
             }), 400
         question = questions[questionId - 1]
+        # ans = filter(lambda a: a['questionId'] == questionId, answers)
         return jsonify({
+            'Answers': [answer.__dict__ for answer in answers if answer.questionId==questionId],
             'Question': question.__dict__,
             'Message': 'Question fetched successfully!'
         }), 200
@@ -133,8 +134,33 @@ def get_all_questions():
     }), 200
 
 
+@mod.route('/questions/<int:questionId>', methods=['DELETE'])
+def delete_question(questionId):
+    try:
+        if len(questions) == 0:
+            return jsonify({
+                'message': 'There are no questions to delete!'
+            }), 400
+        for question in questions:
+            if questionId == question['questionId']:
+                questions.remove(question)
+                return jsonify({
+                    'message': 'Question deleted!'
+                }), 200
+    except IndexError:
+        return jsonify({
+            'message': 'Question does not exist.'
+        }), 400
+
+
 @mod.route('/signup', methods=['POST'])
 def register():
+    """
+    Function enables user to register on the platform. It checks if all the
+    required data is added by the user and then validates that data using
+    regular expressions for the email and password. Returns username in case
+    of successful registration.
+    """
     data = request.get_json()
 
     username = data.get('username')
@@ -142,6 +168,9 @@ def register():
     password = data.get('password')
 
     userId = uuid.uuid4()
+
+    user_id = len(users)
+    user_id += 1
 
     if not username or username.isspace():
         return jsonify({
@@ -169,17 +198,22 @@ def register():
         return jsonify({
             'message': 'Passwords should be at least 6 characters long!'
         }), 400
-    user = User(userId, username, email, password)
+    user = User(user_id, username, email, password)
     users.append(user)
 
     return jsonify({
-        'User': user.username,
+        'User id': user_id,
+        'Username': user.username,
         'message': '{} has registered successfully'.format(username)
     }), 400
 
 
 @mod.route('/login', methods=['POST'])
 def login():
+    """
+    Function enables to login after validating the data they entered.
+    Returns a success message with the username in case of successful login.
+    """
     data = request.get_json()
 
     username = data.get('username')
