@@ -174,15 +174,15 @@ def register():
 
     if not username or username.isspace():
         return jsonify({
-            'message': 'Sorry, you did not enter you username!'
+            'message': 'Sorry, you did not enter your username!'
         }), 400
     if not email or email.isspace():
         return jsonify({
-            'message': 'Sorry, you did not enter you email!'
+            'message': 'Sorry, you did not enter your email!'
         }), 400
     if not password or password.isspace():
         return jsonify({
-            'message': 'Sorry, you did not enter you password!'
+            'message': 'Sorry, you did not enter your password!'
         }), 400
     # source: https://docs.python.org/2/howto/regex.html
     if not re.match(r"[^@.]+@[A-Za-z]+\.[a-z]+", email):
@@ -190,7 +190,7 @@ def register():
             'message': 'Invalid email address!'
         }), 400
     # source: https://docs.python.org/2/howto/regex.html
-    if not re.match(r"[A-Za-z0-9@#]", password):
+    if not re.match(r"[A-Z, a-z, 0-9, @#]", password):
         return jsonify({
             'message': 'Include at least one of each of these characters(A-Za-z0-9@#)'
         }), 400
