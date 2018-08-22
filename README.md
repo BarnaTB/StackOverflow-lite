@@ -66,6 +66,10 @@ and for Linux and MacOS
 
 `py.test`
 
+## Deployment
+
+The UI pages are live on [github pages](https://barnatb.github.io/StackOverflow-lite/) and the python app is hosted on [heroku](https://stackoverflow-lite1.herokuapp.com/). They, however, have only been tested with Google Chrome and Mozilla Firefox so **no** assurance of perfomance in any other browser can be given.
+
 ## Features
 
 * Post a question
@@ -87,10 +91,6 @@ POST|/questions/questionId/answers|Add an answer
 * [Flask](http://flask.pocoo.org/) - Web microframework for Python
 * [Virtual environment](https://virtualenv.pypa.io/en/stable/) - tool used to create isolated python environments
 * [pip](https://pip.pypa.io/en/stable/) - package installer for Python
-
-## Deployment
-
-The UI pages are live on [github pages](https://barnatb.github.io/StackOverflow-lite/) and the python app is hosted on [heroku](https://stackoverflow-lite1.herokuapp.com/). They, however, have only been tested with Google Chrome and Mozilla Firefox so **no** assurance of perfomance in any other browser can be given.
 
 ## Built With
 
