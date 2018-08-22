@@ -112,7 +112,7 @@ def get_one_question(questionId):
     except IndexError:
         return jsonify({
             'message': 'Question does not exist.'
-        }), 400
+        }), 404
 
 
 @mod.route('/questions', methods=['GET'])

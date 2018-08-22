@@ -22,13 +22,13 @@ The pages do not need much to be viewed as any web browser can view them from [t
 
 `git clone https://github.com/BarnaTB/StackOverflow-lite.git`
 
-* Switch to the ft-api branch
-
-`git checkout ft-api`
-
 * Change directory to the cloned folder using the following command for Windows, Linux and MacOS
 
 `cd StackOverflow-lite`
+
+* Switch to the ch-test-endpoints branch
+
+`git checkout ch-test-endpoints`
 
 * If you do not have a virtual environment installed run the following command, else follow the next steps.
 
@@ -90,7 +90,7 @@ POST|/questions/questionId/answers|Add an answer
 
 ## Deployment
 
-The pages are live on [github pages](https://barnatb.github.io/StackOverflow-lite/). They, however, have only been tested with Google Chrome and Mozilla Firefox so **no** assurance of perfomance in any other browser can be given.
+The UI pages are live on [github pages](https://barnatb.github.io/StackOverflow-lite/) and the python app is hosted on [heroku](https://stackoverflow-lite1.herokuapp.com/). They, however, have only been tested with Google Chrome and Mozilla Firefox so **no** assurance of perfomance in any other browser can be given.
 
 ## Built With
 
