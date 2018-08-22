@@ -1,2 +1,1 @@
-web: gunicorn api:app
-worker: python run.py
+web: gunicorn working=1 api:app
