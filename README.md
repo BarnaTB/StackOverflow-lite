@@ -94,7 +94,7 @@ POST|/questions/questionId/answers|Add an answer
 
 ## Built With
 
-The project has been built with the following technologies so far:
+The project has been built with the following technologies:
 
 * HTML
 * CSS
@@ -111,4 +111,4 @@ Barnabas Tumuhairwe B
 
 ## Acknowledgements
 
-Kudos to the developers at Andela for their unmatched support during the development of this project.
+Kudos to the developers at [Andela](https://andela.com) for their unmatched support during the development of this project.
