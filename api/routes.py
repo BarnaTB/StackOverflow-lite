@@ -167,6 +167,8 @@ def register():
     email = data.get('email')
     password = data.get('password')
 
+    # userId = uuid.uuid4()
+
     user_id = len(users)
     user_id += 1
 
@@ -188,7 +190,7 @@ def register():
             'message': 'Invalid email address!'
         }), 400
     # source: https://docs.python.org/2/howto/regex.html
-    if not re.match(r"[A-Z, a-z, 0-9, @#]", password):
+    if not re.match(r"[A-Za-z0-9@#]", password):
         return jsonify({
             'message': 'Include at least one of each of these characters(A-Za-z0-9@#)'
         }), 400
