@@ -167,7 +167,7 @@ def register():
     email = data.get('email')
     password = data.get('password')
 
-    userId = uuid.uuid4()
+    # userId = uuid.uuid4()
 
     user_id = len(users)
     user_id += 1
