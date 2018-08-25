@@ -65,7 +65,7 @@ def add_answer(questionId):
             }), 400
         if len(questions) == 0:
             return jsonify({
-                'message': 'Sorry, there are no questions yet!!'
+                'message': 'Sorry, there are no questions yet!'
             }), 400
 
         question = questions[questionId - 1]
@@ -80,7 +80,7 @@ def add_answer(questionId):
     except IndexError:
         return jsonify({
             'message': 'Question does not exist.'
-        }), 400
+        }), 404
 
 
 @mod.route('/questions/<int:questionId>', methods=['GET'])
@@ -142,7 +142,7 @@ def delete_question(questionId):
                 'message': 'There are no questions to delete!'
             }), 400
         for question in questions:
-            if questionId == question['questionId']:
+            if questionId == question.questionId:
                 questions.remove(question)
                 return jsonify({
                     'message': 'Question deleted!'
@@ -150,7 +150,7 @@ def delete_question(questionId):
     except IndexError:
         return jsonify({
             'message': 'Question does not exist.'
-        }), 400
+        }), 404
 
 
 @mod.route('/signup', methods=['POST'])
@@ -205,7 +205,7 @@ def register():
         'User id': user_id,
         'Username': user.username,
         'message': '{} has registered successfully'.format(username)
-    }), 400
+    }), 201
 
 
 @mod.route('/login', methods=['POST'])
